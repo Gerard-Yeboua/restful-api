@@ -17,4 +17,8 @@ class Book extends Model
         'created_at',
         'updated_at'
     ];
+    public function authors(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Author::class);
+    }
 }

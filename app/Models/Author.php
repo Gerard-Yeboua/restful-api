@@ -15,4 +15,8 @@ class Author extends Model
         'created_at',
         'updated_at'
     ];
+    public function book(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Book::class);
+    }
 }

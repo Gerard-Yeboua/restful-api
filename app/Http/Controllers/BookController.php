@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index(): \Illuminate\Http\JsonResponse
     {
-        $books = Book::all();
+        $books = Book::with('authors')->get();
         if(!empty($books)){
             return Response::json(['data'=> $books], 200);
         }
@@ -62,7 +62,7 @@ class BookController extends Controller
             //Condition
             if($book){
                 return Response::json(['message'=>
-                    'New Author has been create successfully !'],
+                    'New Book has been create successfully !'],
                     200);
             }
             return Response::json(['message'=>
